@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+  <asset>
+    <created>{{ timestamp }}</created>
+    <modified>{{ timestamp }}</modified>
+    <up_axis>Y_UP</up_axis>
+  </asset>
+  <library_effects>
+    <effect name="minecraftblocks" id="minecraftblocks-fx">
+      <profile_COMMON>
+        <newparam sid="terrain-surface">
+          <surface type="2D">
+            <init_from>terrain_png</init_from>
+            <format>A8R8G8B8</format>
+          </surface>
+        </newparam>
+        <newparam sid="terrain-sampler">
+          <sampler2D>
+            <source>terrain-surface</source>
+            <wrap_s>CLAMP</wrap_s>
+            <wrap_t>CLAMP</wrap_t>
+            <minfilter>NEAREST</minfilter>
+            <magfilter>NEAREST</magfilter>
+          </sampler2D>
+        </newparam>
+        <technique sid="common">
+          <constant>
+            <emission>
+              <texture texcoord="TEX0" texture="terrain-sampler"/>
+            </emission>
+          </constant>
+        </technique>
+      </profile_COMMON>
+    </effect>
+  </library_effects>
+  <library_geometries>
+    <geometry id="printcraft-model" name="printcraft-model">
+      <mesh>
+        <source id="obj-uv-source">
+          <float_array count="2178" id="obj-uv-source-array">{{ obj_uv_source_array }}</float_array>
+          <technique_common>
+            <accessor count="1089" source="#obj-uv-source-array" stride="2">
+              <param type="float" name="S"/>
+              <param type="float" name="T"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="obj-vertex-source">
+          <float_array count="{{ obj_vertex_source_array_count }}" id="obj-vertex-source-array">{{ obj_vertex_source_array }}</float_array>
+          <technique_common>
+            <accessor count="{{ obj_vertex_source_array_accessor_count }}" source="#obj-vertex-source-array" stride="3">
+              <param type="float" name="X"/>
+              <param type="float" name="Y"/>
+              <param type="float" name="Z"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="obj-vertex-source-vertices">
+          <input source="#obj-vertex-source" semantic="POSITION"/>
+        </vertices>
+        <polylist count="{{ polylist_count }}" material="minecraftblocks">
+          <input source="#obj-vertex-source-vertices" semantic="VERTEX" offset="0"/>
+          <input source="#obj-uv-source" semantic="TEXCOORD" offset="1"/>
+          <vcount>{{ vcount }}</vcount>
+          <p>{{ polylist_p }}</p>
+        </polylist>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_images>
+    <image name="terrain_png" id="terrain">
+      <init_from>./terrain.png</init_from>
+    </image>
+  </library_images>
+  <library_materials>
+    <material name="minecraftblocks-material" id="minecraftblocks-material">
+      <instance_effect url="#minecraftblocks-fx"/>
+    </material>
+  </library_materials>
+  <library_visual_scenes>
+    <visual_scene id="scene">
+      <node name="node" id="node">
+        <instance_geometry url="#printcraft-model">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="minecraftblocks" target="#minecraftblocks-material">
+                <bind_vertex_input input_semantic="TEXCOORD" input_set="0" semantic="TEX0"/>
+              </instance_material>
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#scene"/>
+  </scene>
+</COLLADA>

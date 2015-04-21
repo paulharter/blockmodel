@@ -1,0 +1,10 @@
+newmtl skin
+Ka 0.000 1.000 1.000
+Kd 0.000 1.000 1.000
+Ks 0.000 1.000 1.000
+d 1.0
+illum 2
+map_Ka skin.png 
+map_Kd skin.png 
+map_Ks skin.png 
+

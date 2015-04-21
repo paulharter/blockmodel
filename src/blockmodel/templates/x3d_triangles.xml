@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.2//EN" "http://www.web3d.org/specifications/x3d-3.2.dtd">
+<X3D profile="Interchange" version="3.2" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.2.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance">
+ <head>
+  <meta content="printcraft_model.x3d" name="title"/>
+  <meta content="A Printcraft Block Model" name="description"/>
+  <meta content="{{ timestamp }}" name="created"/>
+  <meta content="Printcraft, http://www.printcraft.org" name="generator"/>
+ </head>
+ <Scene>
+  <Shape>
+   <Appearance>
+    <ImageTexture url="./terrain_big.png" />
+   </Appearance>
+   <IndexedTriangleSet index="{{ index }}" solid='false' ccw='true' colorPerVertex='true' normalPerVertex='false' containerField='geometry'>
+    <Coordinate point="{{ coordinate_point }}"/>
+    <TextureCoordinate point="{{ tex_coord_point }}"/>
+   </IndexedTriangleSet>
+  </Shape>
+ </Scene>
+</X3D>
