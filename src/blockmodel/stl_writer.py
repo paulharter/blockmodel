@@ -20,7 +20,7 @@ endfacet
 BINARY_HEADER ="80sI"
 BINARY_FACET = "12fH"
 
-class ASCII_STL_Writer:
+class ASCII_STL_Writer(object):
     """ Export 3D objects build of 3 or 4 vertices as ASCII STL file.
     """
     def __init__(self, stream):

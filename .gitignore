@@ -2,3 +2,5 @@
 .DS_Store
 .project
 .idea
+*.egg
+*.egg-info
