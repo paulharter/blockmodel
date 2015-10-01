@@ -1,9 +1,9 @@
 from setuptools import setup, find_packages
 
 setup(name='blockmodel',
-    version='1.0.0',
+    version='1.0.1',
     description='Converts Minecraft models to 3D models',
-    url="https://github.com/paulharter/blockmodel",
+    url='https://github.com/paulharter/blockmodel',
     author='Paul Harter',
     author_email='paul@glowinthedark.co.uk',
     license='MIT',
@@ -17,9 +17,10 @@ setup(name='blockmodel',
         'License :: OSI Approved :: MIT License'
     ],
     keywords='minecraft 3D printing',
-    install_requires=['nbt', 'jinja2', 'lxml'],
+    install_requires=['nbt', 'jinja2'],
     packages=find_packages('src'),
-    package_data={'': ['*.csv', '*.mtl', '*.obj', '*.x3d', '*.png', '*.xml']},
     package_dir={'': 'src'},
     include_package_data=True,
     zip_safe=False)
+
+

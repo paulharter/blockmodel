@@ -1,0 +1,1 @@
+recursive-include src *.csv *.mtl *.obj *.x3d *.png *.xml
