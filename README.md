@@ -1,6 +1,7 @@
 # blockmodel
 
-A python library that converts Minecraft models to various 3D formats
+A Python 3 library that converts Minecraft models to various 3D formats.
+
 
 ## Usage
 
