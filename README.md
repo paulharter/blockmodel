@@ -1,6 +1,12 @@
 # blockmodel
 
-A python library that converts Minecraft models to various 3D formats
+A Python 3 library that converts Minecraft models to various 3D formats.
+
+## Installation
+
+The easiest way to use blockmodel is to install it with pip `pip install blockmodel`
+
+Or you can clone this repo and run the usual `python setup.py install`
 
 ## Usage
 
@@ -10,7 +16,7 @@ First create an instance of blockmodel.BlockModel with one of its classmethods
 ```python
 BlockModel.from_json(as_json, max_size=None)
 ```
-The json has to be a multi-dimensional array of blocks `[x][y][z]` where each block is an array of block is and data`[id, data]`. For example:
+The json has to be a multi-dimensional array of blocks `[x][y][z]` where each block is an array of block ids and data`[id, data]`. For example:
 ```json
 [
 [[[3,0],[3,0],[3,0]],[[3,0],[3,0],[3,0]],[[2,0],[2,0],[2,0]]],
@@ -18,7 +24,7 @@ The json has to be a multi-dimensional array of blocks `[x][y][z]` where each bl
 [[[3,0],[3,0],[3,0]],[[0,0],[0,0],[3,0]],[[2,0],[2,0],[2,0]]]
 ]
 ```
-This will create a 9x9 block of dirt with grass on top and a partly exposed block of diamond ore in the middle.
+This will create a 9x9 block of dirt with grass on top and a partly exposed block of diamond ore in the middle. (Note this method takes json encoded string not a python array.)
 
 ```python   
 BlockModel.from_png(as_png, max_size=None)
@@ -86,7 +92,7 @@ block_model = BlockModel.from_schematic_file(earth_json)
 block_model.save_as_collada(file_path)
 ```
 
-This will save out a collada model that looks like this:
+This will save out a collada model to file from json.
  
     
  
