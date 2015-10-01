@@ -24,7 +24,7 @@ The json has to be a multi-dimensional array of blocks `[x][y][z]` where each bl
 [[[3,0],[3,0],[3,0]],[[0,0],[0,0],[3,0]],[[2,0],[2,0],[2,0]]]
 ]
 ```
-This will create a 9x9 block of dirt with grass on top and a partly exposed block of diamond ore in the middle.
+This will create a 9x9 block of dirt with grass on top and a partly exposed block of diamond ore in the middle. (Note this method takes json encoded string not a python array.)
 
 ```python   
 BlockModel.from_png(as_png, max_size=None)
