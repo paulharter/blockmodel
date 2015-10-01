@@ -2,6 +2,11 @@
 
 A Python 3 library that converts Minecraft models to various 3D formats.
 
+## Installation
+
+The easiest way to use blockmodel is to install it with pip `pip install blockmodel`
+
+Or you can clone this repo and run the usual `python setup.py install`
 
 ## Usage
 
