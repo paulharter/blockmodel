@@ -1,6 +1,10 @@
 # blockmodel
 
-A Python 3 library that converts Minecraft models to various 3D formats.
+A Python library that converts Minecraft models to and from various 3D formats.
+
+blockmodel is the core model creation library used by http://printcraft.org to create models on its servers.
+
+blockmodel supports python 2.7 and 3.5
 
 ## Installation
 
@@ -88,7 +92,7 @@ earth_json ="""[
     [[[3,0],[3,0],[3,0]],[[0,0],[0,0],[3,0]],[[2,0],[2,0],[2,0]]]
     ]
     """
-block_model = BlockModel.from_schematic_file(earth_json)
+block_model = BlockModel.from_json(earth_json)
 block_model.save_as_collada(file_path)
 ```
 
