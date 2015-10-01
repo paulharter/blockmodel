@@ -4,10 +4,11 @@ from io import BytesIO
 from jinja2 import Environment, PackageLoader
 from nbt import nbt
 
-from blockmodel.stl_writer import Binary_STL_Writer
+from blockmodel.writers.stl_writer import Binary_STL_Writer
 from blockmodel.mapper import MinecraftBlockMapper
 from blockmodel.readers import *
 from blockmodel.constants import *
+from blockmodel.writers.file_writers import write_stl, write_x3d, write_collada, write_obj, write_csv
 
 THIS_DIR = os.path.dirname(__file__)
 RESOURCES_ROOT = os.path.join(os.path.dirname(__file__), "resources")
@@ -224,16 +225,18 @@ class BlockModel(object):
         
         if side == SIDE_TOP:
             other_block = self._get_block(x, y+1, z)
-        if side == SIDE_BOTTOM:
+        elif side == SIDE_BOTTOM:
             other_block = self._get_block(x, y-1, z)
-        if side == SIDE_RIGHT:
+        elif side == SIDE_RIGHT:
             other_block = self._get_block(x+1, y, z)
-        if side == SIDE_LEFT:
+        elif side == SIDE_LEFT:
             other_block = self._get_block(x-1, y, z)
-        if side == SIDE_FRONT:
+        elif side == SIDE_FRONT:
             other_block = self._get_block(x, y, z+1)
-        if side == SIDE_BACK:
+        elif side == SIDE_BACK:
             other_block = self._get_block(x, y, z-1)
+        else:
+            raise Exception("Unrecognised side ID")
 
         if block.block_type == "cube":
             if other_block is None:
@@ -394,7 +397,7 @@ class BlockModel(object):
 
     def _get_ordered_vertices(self):
         ordered_vertices = [None] * len(self.vertices)
-        for k, v in self.vertices.iteritems():
+        for k, v in self.vertices.items():
             ordered_vertices[v] = k
         return ordered_vertices
 
@@ -601,6 +604,24 @@ class BlockModel(object):
 
     def _get_content_depth(self):
         return self.max_z - self.min_z
+
+
+    ## file out helpers
+
+    def save_as_stl(self, file_path):
+        write_stl(file_path, self.stl)
+
+    def save_as_csv(self, file_path):
+        write_csv(file_path, self.csv)
+
+    def save_as_x3d(self, file_path):
+        write_x3d(file_path, self.x3d)
+
+    def save_as_collada(self, file_path):
+        write_collada(file_path, self.collada)
+
+    def save_as_obj(self, file_path):
+        write_obj(file_path, self.obj)
 
     obj = property(_as_obj)
     x3d = property(_as_x3d_triangles)

@@ -52,6 +52,8 @@
 # Incorporated into pypng by drj on 2009-03-12 from
 # //depot/prj/bangaio/master/code/png.py#67
 
+# Incorporated into blockmodel by paulharter on 2016-10-01 with
+# slight modifications for python 3
 
 """
 Pure Python PNG Reader/Writer
@@ -1617,7 +1619,7 @@ class Reader:
                 out.extend(map(lambda i: mask&(o>>i), shifts))
             return out[:width]
 
-        return itertools.imap(asvalues, rows)
+        return map(asvalues, rows)
 
     def serialtoflat(self, bytes, width=None):
         """Convert serial format (byte stream) pixel data to flat row
@@ -1860,7 +1862,7 @@ class Reader:
             while True:
                 try:
                     type, data = self.chunk()
-                except ValueError, e:
+                except ValueError as e:
                     raise ChunkError(e.args[0])
                 if type == 'IEND':
                     # http://www.w3.org/TR/PNG/#11IEND
@@ -2331,7 +2333,7 @@ def topngbytes(name, rows, x, y, **k):
 
     import os
 
-    print name
+    print(name)
     f = BytesIO()
     w = Writer(x, y, **k)
     w.write(f, rows)
@@ -2495,7 +2497,7 @@ class Test(unittest.TestCase):
             candi = candidate.replace('n', 'i')
             if candi not in _pngsuite:
                 continue
-            print 'adam7 read', candidate
+            print('adam7 read', candidate)
             straight = Reader(bytes=_pngsuite[candidate])
             adam7 = Reader(bytes=_pngsuite[candi])
             # Just compare the pixels.  Ignore x,y (because they're
@@ -3721,7 +3723,7 @@ def _main(argv):
         names = list(_pngsuite)
         names.sort()
         for name in names:
-            print name
+            print(name)
         return
 
     # Run regression tests
@@ -3796,5 +3798,5 @@ def _main(argv):
 if __name__ == '__main__':
     try:
         _main(sys.argv)
-    except Error, e:
+    except Error as e:
         print >>sys.stderr, e

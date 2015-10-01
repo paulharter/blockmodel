@@ -7,9 +7,9 @@ class SparseJsonModelReader(BaseModelReader):
 
     def __init__(self, as_json_str, max_size):
         self.as_list = json.loads(as_json_str)
-        positions, _blocks = zip(*self.as_list)
+        positions = [[b[0],b[1],b[2]] for b in self.as_list]
 
-        xyz = zip(*positions)
+        xyz = list(zip(*positions))
 
         self.max_x = max(xyz[0])
         self.min_x = min(xyz[0])
@@ -20,8 +20,10 @@ class SparseJsonModelReader(BaseModelReader):
 
         self.as_dict = {}
 
-        for position, block in self.as_list:
-            self.as_dict[tuple(position)] = tuple(block)
+        for b in self.as_list:
+            position = (b[0],b[1],b[2])
+            block = (b[3],b[4])
+            self.as_dict[position] = block
 
         self.width = (self.max_x - self.min_x) + 1
         self.height = (self.max_y - self.min_y) + 1
