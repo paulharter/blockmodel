@@ -90,7 +90,7 @@ earth_json ="""[
     [[[3,0],[3,0],[3,0]],[[0,0],[0,0],[3,0]],[[2,0],[2,0],[2,0]]]
     ]
     """
-block_model = BlockModel.from_schematic_file(earth_json)
+block_model = BlockModel.from_json(earth_json)
 block_model.save_as_collada(file_path)
 ```
 
