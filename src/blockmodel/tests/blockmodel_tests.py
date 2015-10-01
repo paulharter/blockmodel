@@ -278,7 +278,6 @@ class BlockModelFilesTestCase(unittest.TestCase):
             os.makedirs(MADE_DIR)
 
     def tearDown(self):
-
         shutil.rmtree(MADE_DIR)
 
     def assertFileMatches(self, ref_path, made_path):
