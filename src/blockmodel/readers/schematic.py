@@ -11,10 +11,17 @@ class SchematicModelReader(BaseModelReader):
         self.width = nbtfile[u"Width"].value
         self.height = nbtfile[u"Height"].value
         self.depth = nbtfile[u"Length"].value
+        print self.width
+        print self.height
+        print self.depth
+
         self.check_size(max_size)
 
         self.blocks = nbtfile[u"Blocks"]
         self.data = nbtfile[u"Data"]
+
+        print self.blocks
+        print self.data
 
 
     def get(self, x, y, z):

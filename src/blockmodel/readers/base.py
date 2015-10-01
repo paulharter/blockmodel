@@ -1,6 +1,5 @@
 
 
-
 class BaseModelReader(object):
 
     def get(self, x, y, z):

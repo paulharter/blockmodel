@@ -34,7 +34,7 @@ You can then get renditions of the model by accessing these attributes:
 eg
 
 ```python  
-block_model = BlockModel.from_schematic_file(schematic, max_size=None)
+block_model = BlockModel.from_schematic_file(schematic)
 obj = block_model.obj
 ```
 

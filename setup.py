@@ -3,11 +3,12 @@ from setuptools import setup, find_packages
 setup(name='blockmodel',
     version='1.0.0',
     description='Converts Minecraft models to 3D models',
+    url="https://github.com/paulharter/blockmodel",
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Natural Language :: English',
         'Operating System :: OS Independent',
-        'Programming Language :: Python :: 2.7.6',
+        'Programming Language :: Python :: 2.7',
         'Intended Audience :: Manufacturing',
         'License :: OSI Approved :: MIT License'
     ],
