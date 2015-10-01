@@ -10,7 +10,7 @@ First create an instance of blockmodel.BlockModel with one of its classmethods
 ```python
 BlockModel.from_json(as_json, max_size=None)
 ```
-The json has to be a multi-dimensional array of blocks `[x][y][z]` where each block is an array of block is and data`[id, data]`. For example:
+The json has to be a multi-dimensional array of blocks `[x][y][z]` where each block is an array of block ids and data`[id, data]`. For example:
 ```json
 [
 [[[3,0],[3,0],[3,0]],[[3,0],[3,0],[3,0]],[[2,0],[2,0],[2,0]]],
@@ -86,7 +86,7 @@ block_model = BlockModel.from_schematic_file(earth_json)
 block_model.save_as_collada(file_path)
 ```
 
-This will save out a collada model that looks like this:
+This will save out a collada model to file from json.
  
     
  
