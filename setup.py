@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(name='blockmodel',
-    version='1.0.1',
+    version='1.0.2',
     description='Converts Minecraft models to 3D models',
     url='https://github.com/paulharter/blockmodel',
     author='Paul Harter',
@@ -11,7 +11,7 @@ setup(name='blockmodel',
         'Development Status :: 5 - Production/Stable',
         'Natural Language :: English',
         'Operating System :: OS Independent',
-        'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 2.7',
         'Intended Audience :: Education',
         'License :: OSI Approved :: MIT License'
