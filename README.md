@@ -1,5 +1,7 @@
 # blockmodel
 
+[![Build Status](https://travis-ci.org/paulharter/blockmodel.svg?branch=master)](https://travis-ci.org/paulharter/blockmodel)
+
 A Python library that converts Minecraft models to and from various 3D formats.
 
 blockmodel is the core model creation library used by http://printcraft.org to create models on its servers.
