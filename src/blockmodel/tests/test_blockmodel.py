@@ -227,7 +227,7 @@ class BlockModelTestCase(unittest.TestCase):
         self.maxDiff = None
         # self.assertMultiLineEqual(refcol, col)
 
-        f = open("collada_schema_1_4_1.xsd", "rb")
+        f = open(data_path("ref/collada_schema_1_4_1.xsd"), "rb")
         col_str = f.read()
         xmlschema_doc = etree.fromstring(col_str)
         f.close()
@@ -260,7 +260,7 @@ class BlockModelTestCase(unittest.TestCase):
         self.maxDiff = None
         # self.assertMultiLineEqual(refx3d, x3d)
 
-        f = open("x3d-3.2.xsd", "rb")
+        f = open(data_path("ref/x3d-3.2.xsd"), "rb")
         xmlschema_doc = etree.parse(f)
         f.close()
         xmlschema = etree.XMLSchema(xmlschema_doc)
